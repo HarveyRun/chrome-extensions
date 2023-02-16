@@ -1,0 +1,54 @@
+{
+  "name": "deal-hepler",
+  "displayName": "Deal hepler",
+  "version": "0.0.1",
+  "description": "deal help plugin",
+  "author": "zpw",
+  "packageManager": "yarn@1.22.19",
+  "scripts": {
+    "dev": "plasmo dev",
+    "build": "plasmo build",
+    "package": "plasmo package"
+  },
+  "dependencies": {
+    "antd": "^5.2.0",
+    "plasmo": "0.64.5",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "@plasmohq/prettier-plugin-sort-imports": "3.6.1",
+    "@types/chrome": "0.0.210",
+    "@types/node": "18.11.18",
+    "@types/react": "18.0.27",
+    "@types/react-dom": "18.0.10",
+    "axios": "^1.3.2",
+    "prettier": "2.8.3",
+    "typescript": "4.9.4"
+  },
+  "manifest": {
+    "background": {
+      "service_worker": "background.js",
+      "type": "module"
+    },
+    "declarative_net_request": {
+      "rule_resources": [{
+        "id": "ruleset_1",
+        "enabled": true,
+        "path": "/lib/networkRules.json"
+      }]
+    },
+    "cross_origin_opener_policy": {
+      "value": "https://*/*"
+    },
+    "permissions": ["storage","declarativeNetRequest","declarativeNetRequestWithHostAccess","declarativeNetRequestFeedback","scripting"],
+    "web_accessible_resources": [
+      {
+        "resources": [ "lib/injectedxz.js" ],
+        "matches": [ "https://*.qq.com/*" ]
+    }],
+    "host_permissions": [
+      "https://*/*"
+    ]
+  }
+}
